@@ -6,9 +6,7 @@ body {
 	font-size: 1.75em;
 	line-height: 140%;
 	position: relative;
-	background-color: #000;
-	/* Praneetha, if the background color isn't black, bad things happen to all my php menus... */
-	/* background-color: #fff; */
+	background-color: #fff;
 }
 
 .fixed {

@@ -34,9 +34,13 @@
 		<script>
 			var text = "";
 			var x;
+			var y;
 			for (x in users) {
- 			   text += users[x];
- 			   document.write(text);
+				for (y in users[x]) {
+					text += users[x][y];
+					document.write(text);
+				}
+ 			   
 			}
 			document.write(text); 
 		</script>

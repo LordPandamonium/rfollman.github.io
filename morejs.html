@@ -36,8 +36,10 @@
 			var x;
 			var y;
 			for (x in users) {
+				print("looping now");
 				for (y in users[x]) {
-					text += users[x][y];
+					print("new loop");
+					text += users.First;
 					document.write(text);
 				}
  			   

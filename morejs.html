@@ -36,7 +36,12 @@
 			var x;
 			for (var x in users) {
 				if (users.hasOwnProperty(x)) {
-					console.log(x + " -> " + users[x]);
+					var obj = users[x];
+					for (var y in obj) {
+						if (obj.hasOwnProperty(y)) {
+							console.log(y + " -> " + obj[y]);
+						}
+					}
 				}
 			}
 		</script>

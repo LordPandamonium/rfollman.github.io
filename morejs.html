@@ -34,17 +34,11 @@
 		<script>
 			var text = "";
 			var x;
-			var y;
-			for (x in users) {
-				print("looping now");
-				for (y in users[x]) {
-					print("new loop");
-					text += users.First;
-					document.write(text);
+			for (var x in users) {
+				if (users.hasOwnProperty(x)) {
+					document.write(x + " -> " + users[x])
 				}
- 			   
 			}
-			document.write(text); 
 		</script>
 	</body>
 </html>

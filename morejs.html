@@ -30,21 +30,24 @@
 	</head>
 	<body>
 		<h1>Javascript Looping</h1>
-		<div id="people"></div>
+		<table id="people"></table>
 		<script>
-			document.write(users[0].First);
+			/*document.write(users[0].First);*/
 			var text = "";
-			var x;
+			/*var x;*/
 			for (var x in users) {
 				if (users.hasOwnProperty(x)) {
 					var obj = users[x];
 					for (var y in obj) {
 						if (obj.hasOwnProperty(y)) {
+							text += "<tr><th>" + y + "</th><td>" + obj[y] + "</td></tr>";
 							document.write(y + " -> " + obj[y] + '\n');
 						}
 					}
 				}
 			}
+			document.getElementById("people").innerHTML = text;
+			document.getElementByID("people").innerHTML = text;
 		</script>
 	</body>
 </html>

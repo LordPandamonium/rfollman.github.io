@@ -30,23 +30,36 @@
 	</head>
 	<body>
 		<h1>Javascript Looping</h1>
-		<table id="people"></table>
+		<h2>People Table</h2>
+		<table id="people"></table><br><br>
+		<h2>New People Table</h2>
+		<table id="newpeople">
+			<thead>
+				<tr><th>Name</th><th>User ID</th><th>First Login</th><th>City</th></tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
 		<script>
 			/*document.write(users[0].First);*/
 			var text = "";
+			var newtext = "";
 			/*var x;*/
 			for (var x in users) {
 				if (users.hasOwnProperty(x)) {
 					var obj = users[x];
 					for (var y in obj) {
 						if (obj.hasOwnProperty(y)) {
-							text += "<tr><th>" + y + "</th><td>" + obj[y] + "</td></tr>";
-							document.write(y + " -> " + obj[y] + '\n');
+							text += "<tr><td align='right'>" + y + "</td><td>" + obj[y] + "</td></tr>";
+							newtext += "<tr><td>" + obj['First'] + " " + obj['Last'] + "</td><td>" + obj['User ID'] + "</td></tr>";
+							/*document.write(y + " -> " + obj[y] + '\n');*/
 						}
 					}
 				}
 			}
 			document.getElementById("people").innerHTML = text;
+			document.getElementById("newpeople").innerHTML = newtext;
 			document.getElementByID("people").innerHTML = text;
 		</script>
 	</body>

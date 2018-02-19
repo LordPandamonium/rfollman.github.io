@@ -58,7 +58,11 @@
 							text += "<tr><td align='right'>" + y + "</td><td>" + obj[y] + "</td></tr>";
 						}
 					}
-					newtext += "<tr><td>" + obj['First'] + " " + obj['Last'] + "</td><td>" + obj['User ID'] + "</td><td>" + dateCalc(obj['Date of Login']) + "</td></tr>";
+					newtext += "<tr><td>" + obj['First'] + " " + obj['Last'] + "</td><td>" + 
+						obj['User ID'] + "</td><td>" + 
+						obj['Date of Login'] + "</td><td>" +
+						obj['City'] + "</td><td>" +
+						dateCalc(obj['Date of Login']) + "</td></tr>";
 				}
 			}
 			document.getElementById("people").innerHTML = text;

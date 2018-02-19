@@ -35,13 +35,18 @@
 		<h2>New People Table</h2>
 		<table>
 			<thead>
-				<tr><th>Name</th><th>User ID</th><th>First Login</th><th>City</th></tr>
+				<tr><th>Name</th><th>User ID</th><th>First Login</th><th>City</th><th>Date Since Last Login</th></tr>
 			</thead>
 			<tbody id="newpeople">
 				
 			</tbody>
 		</table>
 		<script>
+			function dateCalc(d) {
+				var x = new Date();
+				var y = x - d;
+			}
+			
 			var text = "";
 			var newtext = "";
 			for (var x in users) {
@@ -52,7 +57,7 @@
 							text += "<tr><td align='right'>" + y + "</td><td>" + obj[y] + "</td></tr>";
 						}
 					}
-					newtext += "<tr><td>" + obj['First'] + " " + obj['Last'] + "</td><td>" + obj['User ID'] + "</td></tr>";
+					newtext += "<tr><td>" + obj['First'] + " " + obj['Last'] + "</td><td>" + obj['User ID'] + "</td><td>" + dateCalc(obj['Date of Login']) + "</td></tr>";
 				}
 			}
 			document.getElementById("people").innerHTML = text;

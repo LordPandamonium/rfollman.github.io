@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>More Javascript</title>
-		<link rel="stylesheet" href="https://rfollman.github.io/main-php.css">
+		<link rel="stylesheet" href="main-php.css">
 		<script>
 			var users = [
 				{
@@ -29,13 +29,14 @@
 		</script>
 	</head>
 	<body>
+		<div class="content">
 		<h1>Javascript Looping</h1>
 		<h2>People Table</h2>
 		<table id="people"></table><br><br>
 		<h2>New People Table</h2>
 		<table>
 			<thead>
-				<tr><th>Name</th><th>User ID</th><th>First Login</th><th>City</th><th>Date Since Last Login</th></tr>
+				<tr><th>Name</th><th>User ID</th><th>First Login</th><th>City</th><th>Days Since Last Login</th></tr>
 			</thead>
 			<tbody id="newpeople">
 				
@@ -43,12 +44,19 @@
 		</table>
 		
 		<script>
+			/*suggestions from https://www.htmlgoodies.com/html5/javascript/calculating-the-difference-between-two-dates-in-javascript.html*/
 			function dateCalc(d) {
-				var x = new Date();
-				window.alert(x);
-				var y = x - d;
-				window.alert(y);
-				return y;
+				var oneDay = 1000 * 60 * 60 * 24;
+				var month = d.split("/")[0] - 1,
+					day = d.split("/")[1],
+					year = d.split("/")[2]
+				if (year.length == 2) {year = '20' + year;}
+				date1 = new Date(year, month, day);
+				var date1_ms = date1.getTime();
+				var date2 = new Date();
+				var date2_ms = date2.getTime();
+				var diff_ms = date2_ms - date1_ms;
+				return Math.round(diff_ms/oneDay);
 			}
 			
 			var text = "";
@@ -68,16 +76,10 @@
 						dateCalc(obj['Date of Login']) + "</td></tr>";
 				}
 			}
-			y = new Date();
-d = '02/01/18';
-var month = d.split("/")[0],
-	day = d.split("/")[1],
-	year = d.split("/")[2]
-x = new Date(year, month, day);
-write.alert(x);
 
 			document.getElementById("people").innerHTML = text;
 			document.getElementById("newpeople").innerHTML = newtext;
 		</script>
+</div>
 	</body>
 </html>

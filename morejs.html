@@ -68,6 +68,14 @@
 						dateCalc(obj['Date of Login']) + "</td></tr>";
 				}
 			}
+			y = new Date();
+d = '02/01/18';
+var month = d.split("/")[0],
+	day = d.split("/")[1],
+	year = d.split("/")[2]
+x = new Date(year, month, day);
+write.alert(x);
+
 			document.getElementById("people").innerHTML = text;
 			document.getElementById("newpeople").innerHTML = newtext;
 		</script>

@@ -30,9 +30,9 @@
 	</head>
 	<body>
 		<div class="content">
-		<h1>Javascript Looping</h1>
-		<h2>People Table</h2>
-		<table id="people"></table><br><br>
+		<h1>Javascript Functions</h1>
+<!-- 		<h2>People Table</h2>
+<table id="people"></table><br><br> -->
 		<h2>New People Table</h2>
 		<table>
 			<thead>
@@ -44,6 +44,14 @@
 		</table>
 		
 		<script>
+			/*http://www.rgagnon.com/jsdetails/js-0143.html*/
+			/*http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/*/
+			/*https://www.w3schools.com/js/tryit.asp?filename=tryjs_event_onclick2*/
+			function hideRow(obj) {
+				
+				obj.style.display = 'none';
+			}
+
 			/*suggestions from https://www.htmlgoodies.com/html5/javascript/calculating-the-difference-between-two-dates-in-javascript.html*/
 			function dateCalc(d) {
 				var oneDay = 1000 * 60 * 60 * 24;
@@ -56,14 +64,12 @@
 				var date2 = new Date();
 				var date2_ms = date2.getTime();
 				var diff_ms = date2_ms - date1_ms;
-				var testdate = new Date(1970,0,1,0,23,46);
-				console.log(testdate);
-				console.log(testdate.getTime());
 				return Math.round(diff_ms/oneDay);
 			}
 			
 			var text = "";
 			var newtext = "";
+			var totdays = 0;
 			for (var x in users) {
 				if (users.hasOwnProperty(x)) {
 					var obj = users[x];
@@ -72,15 +78,16 @@
 							text += "<tr><td align='right'>" + y + "</td><td>" + obj[y] + "</td></tr>";
 						}
 					}
-					newtext += "<tr><td>" + obj['First'] + " " + obj['Last'] + "</td><td>" + 
+					newtext += "<tr onclick='hideRow(this)'><td>" + obj['First'] + " " + obj['Last'] + "</td><td>" + 
 						obj['User ID'] + "</td><td>" + 
 						obj['Date of Login'] + "</td><td>" +
-						obj['City'] + "</td><td>" +
+						obj['City'] + "</td><td align='center' class='num'>" +
 						dateCalc(obj['Date of Login']) + "</td></tr>";
+					totdays += dateCalc(obj['Date of Login']);
 				}
 			}
-
-			document.getElementById("people").innerHTML = text;
+			newtext += "<tr><td colspan='4'>Total Days</td><td align='center' class='totnum'>" + totdays + "</td></tr>";
+			/*document.getElementById("people").innerHTML = text;*/
 			document.getElementById("newpeople").innerHTML = newtext;
 		</script>
 </div>

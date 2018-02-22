@@ -56,6 +56,9 @@
 				var date2 = new Date();
 				var date2_ms = date2.getTime();
 				var diff_ms = date2_ms - date1_ms;
+				var testdate = new Date(1970,0,1,0,23,46);
+				console.log(testdate);
+				console.log(testdate.getTime());
 				return Math.round(diff_ms/oneDay);
 			}
 			

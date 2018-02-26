@@ -22,7 +22,7 @@
 					"First": "Zola",
 					"Last": "Hoehn",
 					"User ID": "zola524",
-					"Date of Login": "02/10/18",
+					"Date of Login": "12/10/17",
 					"City": "Gainesville"
 				}
 			];
@@ -48,7 +48,9 @@
 			/*http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/*/
 			/*https://www.w3schools.com/js/tryit.asp?filename=tryjs_event_onclick2*/
 			function hideRow(obj) {
-				
+				var y = obj.getElementsByClassName('num');
+				var tn = document.getElementsByClassName('totnum')[0].innerText;
+				document.getElementsByClassName('totnum')[0].innerText = tn - y[0].innerText;
 				obj.style.display = 'none';
 			}
 
@@ -67,17 +69,11 @@
 				return Math.round(diff_ms/oneDay);
 			}
 			
-			var text = "";
 			var newtext = "";
 			var totdays = 0;
 			for (var x in users) {
 				if (users.hasOwnProperty(x)) {
 					var obj = users[x];
-					for (var y in obj) {
-						if (obj.hasOwnProperty(y)) {
-							text += "<tr><td align='right'>" + y + "</td><td>" + obj[y] + "</td></tr>";
-						}
-					}
 					newtext += "<tr onclick='hideRow(this)'><td>" + obj['First'] + " " + obj['Last'] + "</td><td>" + 
 						obj['User ID'] + "</td><td>" + 
 						obj['Date of Login'] + "</td><td>" +
@@ -87,7 +83,6 @@
 				}
 			}
 			newtext += "<tr><td colspan='4'>Total Days</td><td align='center' class='totnum'>" + totdays + "</td></tr>";
-			/*document.getElementById("people").innerHTML = text;*/
 			document.getElementById("newpeople").innerHTML = newtext;
 		</script>
 </div>
